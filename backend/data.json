@@ -1,0 +1,70 @@
+[
+    {
+        "name": "One to One Meeting",
+        "status": false
+    },
+    {
+        "name": "Prepare PPT for client call",
+        "status": true
+    },
+    {
+        "name": "Submit weekly report to manager",
+        "status": false
+    },
+    {
+        "name": "Look into the ticket COST-345",
+        "status": true
+    },
+    {
+        "name": "Fix cross-browser issue of COST-390",
+        "status": true
+    },
+    {
+        "name": "Milestones creation",
+        "status": false
+    },
+    {
+        "name": "AWS certification",
+        "status": false
+    },
+    {
+        "name": "Complete Cybersecurity Exam",
+        "status": false
+    },
+    {
+        "name": "Shopping for Team Outing",
+        "status": true
+    },
+    {
+        "name": "Write script for skit",
+        "status": true
+    },
+    {
+        "name": "Book consulation with ENT specialist",
+        "status": false
+    },
+    {
+        "name": "Purchase gift for mom's birthday",
+        "status": false
+    },
+    {
+        "name": "Pay Pinky's tution fee",
+        "status": true
+    },
+    {
+        "name": "Order Mattress Protector",
+        "status": false
+    },
+    {
+        "name": "Place return request for shoes",
+        "status": true
+    },
+    {
+        "name": "Draft 3rd episode of Secret Hater",
+        "status": false
+    },
+    {
+        "name": "Publish Angular SSR article",
+        "status": false
+    }
+]

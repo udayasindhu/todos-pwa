@@ -1,0 +1,150 @@
+#add {
+    margin-top: 10vh;
+
+    .right-disc {
+        height: 30vh;
+        width: 30vh;
+        position: absolute;
+        background: linear-gradient(140deg, #68d1d1, rgb(6, 70, 70));
+        border-radius: 50%;
+        bottom: 0px;
+        right: 0px;
+        z-index: -1;
+    }
+
+    .left-disc {
+        height: 30vh;
+        width: 30vh;
+        position: absolute;
+        background: linear-gradient(220deg, #68d1d1, rgb(6, 70, 70));
+        border-radius: 50%;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+    }
+
+    .todo-add-wrap {
+
+        .empty-username-error {
+            text-align: center;
+            color: #9d9c9b;
+            font-family: Poppins, sans-serif;
+            font-size: 15px;
+        }
+
+        .todo-add-header {
+            display: flex;
+            justify-content: space-around;
+
+            .form-block {
+                .form-controls {
+                    display: inline-flex;
+
+                    #status:focus {
+                        border: 1px solid #02a6a6 !important;
+                    }
+
+                    #status {
+                        width: 15vw;
+                    }
+
+                    #name {
+                        width: 35vw;
+                    }
+
+                    #name,
+                    #status {
+                        height: 50px;
+                        background-color: #000;
+                        border: 1px solid rgba(0, 0, 0, 0);
+                        border-radius: 5px;
+                        margin-bottom: 15px;
+                        text-indent: 20px;
+                        color: #9d9c9b;
+                        font-family: Poppins, sans-serif;
+                        outline: none;
+                    }
+
+                    #name:focus {
+                        border: 1px solid #02a6a6 !important;
+                    }
+
+                }
+
+                .form-buttons {
+                    .get-todos {
+                        width: 70%;
+                        background-color: #02a6a6;
+                        border: 1px solid #02a6a6;
+                        border-radius: 40px;
+                        margin: 25px auto 0 auto;
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                        font-size: 12px;
+                        transition: color .2s, background-color .2s;
+                        display: block;
+                        color: #fff;
+                    }
+
+                    .get-todos:hover {
+                        background-color: transparent;
+                        border: 1px solid #02a6a6;
+                        color: #02a6a6;
+                    }
+                }
+            }
+
+            .todo-add-wrap {
+                display: contents;
+            }
+
+            .todo-add-buttons {
+                line-height: 0px;
+                margin-bottom: 20px;
+
+                button {
+                    outline: none;
+                    background: transparent;
+                    border: none;
+                    color: #fff;
+                    font-size: xx-large;
+                }
+            }
+        }
+
+        .todos-add-block {
+            .todo-add-block-wrap {
+                .todo-add-content {
+                    background-color: rgba(255, 255, 255, 0.06);
+                    backdrop-filter: blur(15px);
+                    padding: 30px 25px;
+                    box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+                    border: 1.5px solid rgba(255, 255, 255, 0.06);
+                    border-radius: 10px;
+                    margin-bottom: 3vh;
+
+                    .todo-add-status-wrap {
+                        line-height: 0px;
+                        margin-bottom: 20px;
+                        float: right;
+
+                        button {
+                            outline: none;
+                            background: transparent;
+                            border: none;
+                            font-size: xx-large;
+                        }
+
+                        .todo-add-status-done {
+                            color: rgb(45, 186, 45);
+                        }
+
+                        .todo-add-status-notdone {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

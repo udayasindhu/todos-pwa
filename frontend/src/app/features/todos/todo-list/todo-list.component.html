@@ -1,0 +1,72 @@
+<div class="container" id="home" *ngIf="!isShowList">
+    <div class="left">
+        <div class="left-wrap">
+            <div class="text-wrap">
+                <h1>
+                    {{todoTitle}}
+                </h1>
+                <p>
+                    {{todoCaption}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="right-wrap">
+            <div class="form-block">
+                <form [formGroup]="todoForm">
+                    <div class="form-controls">
+                        <p class="empty-username-error" *ngIf="errorMessage"> {{errorMessage}} </p>
+                        <input id="userName" type="text" formControlName="userName" placeholder="Enter username">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="get-todos" (click)="getTodoList()">{{getTodos |
+                            uppercase}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="list" *ngIf="isShowList">
+    <div class="right-disc"></div>
+    <div class="left-disc"></div>
+    <div class="todo-list-wrap">
+        <div class="todo-list-header">
+            <div class="todo-list-statustype-wrap">
+                <nav class="todo-list-status">
+                    <a class="get-by-status" (click)="getAllTodos()"> All Todos</a>
+                    <a class="get-by-status" (click)="getTodosByStatus(false)">In Progess</a>
+                    <a class="get-by-status" (click)="getTodosByStatus(true)">Done</a>
+                </nav>
+            </div>
+            <div class="todo-list-buttons">
+                <button class="add-task" (click)="addTask()"><i class="bi bi-plus-circle-fill"></i></button>
+                <button class="home" (click)="goToHome()"><i class="bi bi-house-door-fill"></i></button>
+            </div>
+        </div>
+        <div class="todos-list-block" *ngIf="todoList.length > 0">
+            <div class="todo-list-block-wrap" *ngFor="let todo of todoList;trackBy: trackByTodo">
+                <div class="todo-list-content">
+                    <span [ngStyle]="{'text-decoration': todo.status? 'line-through':'none'}">
+                        {{todo.name}}
+                    </span>
+                    <div class="todo-list-status-wrap">
+                        <button [ngClass]="todo.status? 'todo-list-status-done':'todo-list-status-notdone'"
+                            (click)="updateStatus(todo)">
+                            <i [ngClass]="todo.status? 'bi bi-check-circle-fill' : 'bi bi-circle'"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="todos-list-block" *ngIf="!todoList.length" style="text-align: center;">
+            <div class="todo-list-block-wrap">
+                <div class="todo-list-content">
+                    {{errorMessage}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container" id="add">
+    <div class="right-disc"></div>
+    <div class="left-disc"></div>
+    <div class="todo-add-wrap">
+        <p class="empty-username-error" *ngIf="emptyerrorMessage"> {{emptyerrorMessage}} </p>
+        <div class="todo-add-header">
+            <div class="form-block">
+                <form [formGroup]="addTodoForm">
+                    <div class="form-controls">
+                        <div class="form-control-name">
+                            <input type="text" id="name" formControlName="name" placeholder="Enter todo name">
+                        </div>
+                        <div class="form-control-status">
+                            <select name="status" id="status" formControlName="status">
+                                <option class="status-option" *ngFor="let statusType of todoStatusList"
+                                    [value]="statusType">{{statusType}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="todo-add-buttons">
+                <button class="add-task" type="submit" (click)="addTask()"><i
+                        class="bi bi-plus-circle-fill"></i></button>
+                <button class="home" (click)="goToHome()"><i class="bi bi-house-door-fill"></i></button>
+            </div>
+        </div>
+        <div class="todos-add-block" *ngIf="todoList.length > 0">
+            <div class="todo-add-block-wrap" *ngFor="let todo of todoList;trackBy: trackByTodo">
+                <div class="todo-add-content">
+                    <span [ngStyle]="{'text-decoration': todo.status? 'line-through':'none'}">
+                        {{todo.name}}
+                    </span>
+                    <div class="todo-add-status-wrap">
+                        <button [ngClass]="todo.status? 'todo-add-status-done':'todo-add-status-notdone'"
+                            (click)="updateStatus(todo)">
+                            <i [ngClass]="todo.status? 'bi bi-check-circle-fill' : 'bi bi-circle'"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="todos-add-block" *ngIf="!todoList.length" style="text-align: center;">
+            <div class="todo-add-block-wrap">
+                <div class="todo-add-content">
+                    {{errorMessage}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
