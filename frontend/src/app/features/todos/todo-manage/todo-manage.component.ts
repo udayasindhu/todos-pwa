@@ -1,7 +1,7 @@
 import { Component, OnInit, TrackByFunction } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DONE, EMPTY_LIST, EMPTY_TITLE, IN_PROGRESS } from 'src/app/constants';
+import { EMPTY_LIST, EMPTY_TITLE, Status } from 'src/app/constants';
 import { Todo } from 'src/app/models/todo';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -19,7 +19,7 @@ export class TodoManageComponent implements OnInit {
   errorMessage: any = EMPTY_LIST;
   addTodoForm!: FormGroup;
   userName: string = "";
-  todoStatusList = [IN_PROGRESS, DONE];
+  todoStatusList = [Status.IN_PROGRESS, Status.DONE];
   emptyerrorMessage: string = '';
 
   constructor(
@@ -37,14 +37,16 @@ export class TodoManageComponent implements OnInit {
   initForm() {
     this.addTodoForm = this.formBuilder.group({
       name: new FormControl('', Validators.required),
-      status: new FormControl(IN_PROGRESS)
+      status: new FormControl(Status.IN_PROGRESS)
     });
   }
 
   addTask() {
+    const name = this.addTodoForm.get('name')?.value;
+    const status: Status = this.addTodoForm.get('status')?.value as Status;
     this.todo = {
-      name: this.addTodoForm.get('name')?.value,
-      status: this.addTodoForm.get('status')?.value
+      name,
+      status: status === Status.DONE
     };
     this.emptyerrorMessage = !this.todo.name ? EMPTY_TITLE : '';
     if (!this.todo.name) return;

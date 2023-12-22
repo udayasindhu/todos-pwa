@@ -1,7 +1,7 @@
 import { Component, OnInit, TrackByFunction } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DONE, EMPTY_LIST, EMPTY_NAME, GET_TODOS, TODO_CAPTION, TODO_TITLE } from 'src/app/constants';
+import { EMPTY_LIST, EMPTY_NAME, GET_TODOS, TODO_CAPTION, TODO_TITLE } from 'src/app/constants';
 import { Todo } from 'src/app/models/todo';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -51,7 +51,7 @@ export class TodoListComponent implements OnInit {
       this.errorMessage = todos.length > 0
         ? (this.todos = todos, '')
         : (this.todos = [], EMPTY_LIST);
-      this.todoList = this.todos;
+      this.todoList = [...this.todos];
       this.isShowList = true;
     }).catch(error => {
       this.todos = [];

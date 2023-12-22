@@ -4,6 +4,8 @@ This project will help you in create a Progressive Web App in Angular 13. Here w
 
 In order install the application on your device, go to apps in browser options and click on the install application. Then you'll be able to access it locally without internet. But before doing so you've perform the 3rd and 4th point mentioned below.
 
+To get the list of todos for the first time, provide `admin` as username.
+
 ## Development server
 
 1. Go to frontend folder and run `ng serve` for a dev  or local server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

@@ -18,8 +18,7 @@ const TodoSchema = {
                     maxLength: 50
                 },
                 status: {
-                    type: 'string',
-                    maxLength: 10
+                    type: 'boolean',
                 }
             }
         } 

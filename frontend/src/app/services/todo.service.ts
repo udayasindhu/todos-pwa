@@ -3,7 +3,7 @@ import { Environments } from '../config/app-configuration';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Todo } from '../models/todo';
-import { DONE, IN_PROGRESS } from '../constants';
+import { Status } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,7 @@ export class TodoService {
    */
   private modifyResponse(response: Todo[]): Todo[] {
     return response.map(todos => {
-      todos.status ? DONE : IN_PROGRESS;
+      todos.status ? Status.DONE : Status.IN_PROGRESS;
       return todos;
     });
   }
