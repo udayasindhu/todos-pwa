@@ -6,19 +6,18 @@ In order install the application on your device, go to apps in browser options a
 
 ## Development server
 
-1. Go to frontend folder and run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Go to frontend folder and run `ng serve` for a dev  or local server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-2. Go to backend folder and run `node index.js`.
+2. Go to backend folder and run `node server.js` to start the node backend server.
 
-3. Go to frontend folder and run `ng build --prod --aot`.(For Progressive Web App)
+If you want to start a angular application as Progressive web app run below 2 steps.
 
-4. Go to dist folder and run `http-server`
+1. Go to frontend folder and run `ng build --prod --aot`.(For Progressive Web App)
+
+2. Open cmd prompt in frontend\dist folder and run `http-server`
 
 Issue: 
-After serving, if the url is edited manually the link will not work. But it can route based on the actions performed in the UI.
-
-Solution:
-In order to over that issue, we've to use `aot` flag while building.
+After deploying build files in http server user can't manually navigate to any custom path due to build issue. If you don't want to run into this issue we have to build files with `aot` flag like mentioned in above command.
 
 ## Code scaffolding
 
